@@ -5,10 +5,7 @@ from flask_restx import Api, Namespace, Resource, reqparse, inputs, fields
 import pandas as pd
 import json
 import os
-from dotenv import load_dotenv
 
-# Load the variables to access the databases
-load_dotenv()
 
 # Create an app with Flask
 app = Flask(__name__)
@@ -19,10 +16,10 @@ auth_db = {
 }
 
 # Connect to the Google Cloud mySQL database
-db_host = os.getenv('MySQL_db_host')
-db_user = os.getenv('MySQL_db_user')
-db_pass = os.getenv('MySQL_db_pass')
-db_name = os.getenv('MySQL_db_name')
+db_host = os.environ.get('MySQL_db_host')
+db_user = os.environ.get('MySQL_db_user')
+db_pass = os.environ.get('MySQL_db_pass')
+db_name = os.environ.get('MySQL_db_name')
 
 # Function to connect to the Google Cloud MySQL database
 def connect():
