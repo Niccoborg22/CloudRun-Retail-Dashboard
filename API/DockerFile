@@ -12,12 +12,14 @@ ENV MySQL_db_user = "xxx"
 ENV MySQL_db_pass = "xxx"
 ENV MySQL_db_name = "xxx"
 
-# Install any needed packages specified in api_requirements.txt
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r api_requirements.txt
 
-
 # Make port 80 available to the world outside this container
-EXPOSE 80
+EXPOSE 8080
+
+# Define environment variable
+ENV PORT 8080
 
 # Run main.py when the container launches
-CMD ["python", "main.py"]
+CMD exec gunicorn --bind :$PORT main:app
