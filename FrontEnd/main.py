@@ -133,7 +133,7 @@ def logout():
 def articles():
     if "user_id" in session:
         # Download the articles data
-        url = "https://api-dot-retailcapstone.oa.r.appspot.com/api/v1/articles"
+        url = "https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/articles"
         response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
         # Check that the request was successful
         if response.status_code == 200:
@@ -149,7 +149,7 @@ def articles():
 def customers():
     if "user_id" in session:
         # Get the data from the API and normalize it
-        url = 'https://api-dot-retailcapstone.oa.r.appspot.com/api/v1/customers'
+        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/customers'
         response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
@@ -165,7 +165,7 @@ def customers():
 def transactions():
     if "user_id" in session:
         # Get the data from the API and normalize it
-        url = 'https://api-dot-retailcapstone.oa.r.appspot.com/api/v1/transactions'
+        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/transactions'
         response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
@@ -181,7 +181,7 @@ def transactions():
 def playDatasets():
     if "user_id" in session:
         # Get the data from the API and normalize it
-        url = 'https://api-dot-retailcapstone.oa.r.appspot.com/api/v1/alldata'
+        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/alldata'
         response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
