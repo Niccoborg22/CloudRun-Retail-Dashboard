@@ -49,11 +49,10 @@ class get_all_users(Resource):
             query = text("""
                 SELECT *
                 FROM customers
-                LIMIT 10000
+                LIMIT 1000
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
-            print([dict(row) for row in result])
             return {'result': [{row[0]: list(row[1:])} for row in result]}
 
 
@@ -70,7 +69,7 @@ class get_all_articles(Resource):
             query = text("""
                 SELECT *
                 FROM articles
-                LIMIT 10000
+                LIMIT 1000
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
@@ -91,7 +90,7 @@ class all_transactions(Resource):
             query = text("""
                 SELECT *
                 FROM sampletransactions
-                LIMIT 10000
+                LIMIT 1000
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
@@ -112,7 +111,7 @@ class all_data(Resource):
             query = text("""
                 SELECT *
                 FROM alldata
-                LIMIT 10000
+                LIMIT 1000
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
