@@ -7,10 +7,10 @@ import os
 
 
 # Connect to the Google Cloud mySQL database
-db_host = os.environ.get('MySQL_db_host')
-db_user = os.environ.get('MySQL_db_user')
-db_pass = os.environ.get('MySQL_db_pass')
-db_name = os.environ.get('MySQL_db_name')
+db_host = os.environ.get("MySQL_db_host")
+db_user = os.environ.get("MySQL_db_user")
+db_pass = os.environ.get("MySQL_db_pass")
+db_name = os.environ.get("MySQL_db_name")
 
 # function to connect to the MySQL database
 def connect():
@@ -130,8 +130,8 @@ def logout():
 def articles():
     if "user_id" in session:
         # Download the articles data
-        url = "https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/articles"
-        response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
+        url = "https://retailback-m5kpcugzeq-ew.a.run.app/articles/articles"
+        response = requests.get(url)
         # Check that the request was successful
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
@@ -146,8 +146,8 @@ def articles():
 def customers():
     if "user_id" in session:
         # Get the data from the API and normalize it
-        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/customers'
-        response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
+        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/customers/customers'
+        response = requests.get(url)
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
             json_data = json_dict.to_json(orient='records')
@@ -162,8 +162,8 @@ def customers():
 def transactions():
     if "user_id" in session:
         # Get the data from the API and normalize it
-        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/transactions'
-        response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
+        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/transactions/transactions'
+        response = requests.get(url)
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
             json_data = json_dict.to_json(orient='records')
@@ -178,7 +178,7 @@ def transactions():
 def playDatasets():
     if "user_id" in session:
         # Get the data from the API and normalize it
-        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/api/v1/alldata'
+        url = 'https://retailback-m5kpcugzeq-ew.a.run.app/alldata/alldata'
         response = requests.get(url, headers={'Authorization': 'Bearer tokenMania'})
         if response.status_code == 200:
             json_dict = normalize_data(response.json())
