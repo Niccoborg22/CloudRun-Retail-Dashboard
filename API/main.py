@@ -53,7 +53,9 @@ class get_all_users(Resource):
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
-            return {'result': [{row[0]: list(row[1:])} for row in result]}
+            features = ["id", "customer_id",  "Active", "FN", "club_member_status", "fashion_news_frequency", "age", "postal_code"]
+            data = [dict(zip(features, row)) for row in result]
+            return jsonify({'result': data})
 
 
 # Create a namespace to group all the resources and routes related to articles
@@ -73,8 +75,9 @@ class get_all_articles(Resource):
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
-            
-            return {'result': [{row[0]: list(row[1:])} for row in result]}
+            features = ["id","article_id","product_code","prod_name","product_type_no","product_type_name","product_group_name","graphical_appearance_no","graphical_appearance_name","colour_group_code","colour_group_name","perceived_colour_value_id","perceived_colour_value_name","perceived_colour_master_id","perceived_colour_master_name","department_no","department_name","index_code","index_name","index_group_no","index_group_name","section_no","section_name","garment_group_no","garment_group_name","detail_desc"]
+            data = [dict(zip(features, row)) for row in result]
+            return jsonify({'result': data})
 
 # Create a namespace to group all the resources and routes related to transactions
 transactions = Namespace('transactions',
@@ -94,8 +97,10 @@ class all_transactions(Resource):
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
-            
-            return {'result': [{row[0]: list(row[1:])} for row in result]}
+            features = ["index", "t_dat",  "customer_id", "article_id", "price", "sales_channel_id"]
+            data = [dict(zip(features, row)) for row in result]
+            return jsonify({'result': data})
+
 
 # Create a namespace for retrieving the data all together
 alldata = Namespace('alldata',
@@ -115,9 +120,46 @@ class all_data(Resource):
             """)
             result = conn.execute(query).fetchall()
             disconnect(conn)
-            print([row for row in result])
-            return {'result': [{row[0]: list(row[1:])} for row in result]}
-
+            features = [
+                "index",
+                "t_dat",
+                "customer_id",
+                "article_id",
+                "price",
+                "sales_channel_id",
+                "FN",
+                "Active",
+                "club_member_status",
+                "fashion_news_frequency",
+                "age",
+                "postal_code",
+                "product_code",
+                "prod_name",
+                "product_type_no",
+                "product_type_name",
+                "product_group_name",
+                "graphical_appearance_no",
+                "graphical_appearance_name",
+                "colour_group_code",
+                "colour_group_name",
+                "perceived_colour_value_id",
+                "perceived_colour_value_name",
+                "perceived_colour_master_id",
+                "perceived_colour_master_name",
+                "department_no",
+                "department_name",
+                "index_code",
+                "index_name",
+                "index_group_no",
+                "index_group_name",
+                "section_no",
+                "section_name",
+                "garment_group_no",
+                "garment_group_name",
+                "detail_desc"
+                ]
+            data = [dict(zip(features, row)) for row in result]
+            return jsonify({'result': data})
 
 # Run the app
 if __name__ == '__main__':
