@@ -7,11 +7,6 @@ WORKDIR /app
 # Add the current directory contents into the container at /app
 ADD . /app
 
-ENV MySQL_db_host="xxx"
-ENV MySQL_db_user="xxx" 
-ENV MySQL_db_pass="xxx"
-ENV MySQL_db_name="xxx"
-
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 

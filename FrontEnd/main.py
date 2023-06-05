@@ -1,10 +1,9 @@
-from flask import Flask, render_template, request, session, redirect, url_for
-from sqlalchemy import create_engine
-from werkzeug.security import generate_password_hash, check_password_hash
-import requests
-import pandas as pd
 import os
 
+import pandas as pd
+import requests
+from flask import Flask, redirect, render_template, request, session, url_for
+from sqlalchemy import create_engine
 
 # Connect to the Google Cloud mySQL database
 db_host = os.environ.get("MySQL_db_host")
@@ -57,12 +56,12 @@ def handle_register():
     password = request.form["password"]
 
     # transform the password in a hashed password 
-    hashed_password = generate_password_hash(password)
+    # hashed_password = generate_password_hash(password)
 
     # Write the queries
     query = f"""
     INSERT INTO users(username, password)
-    VALUES ("{username}", "{hashed_password}")
+    VALUES ("{username}", "{password}")
     """
 
     user_query = f"""
@@ -103,7 +102,7 @@ def handle_login():
     connection = connect()
     user = connection.execute(query).fetchone()
     if user:
-        password_matches = check_password_hash(user[1], password)
+        password_matches = user[1] == password
     else:
         password_matches = False
 
