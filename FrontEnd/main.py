@@ -4,16 +4,13 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import requests
 import pandas as pd
 import os
-from dotenv import load_dotenv
 
-# Load the variables to access the databases
-load_dotenv()
 
 # Connect to the Google Cloud mySQL database
-db_host = os.getenv('MySQL_db_host')
-db_user = os.getenv('MySQL_db_user')
-db_pass = os.getenv('MySQL_db_pass')
-db_name = os.getenv('MySQL_db_name')
+db_host = os.environ.get('MySQL_db_host')
+db_user = os.environ.get('MySQL_db_user')
+db_pass = os.environ.get('MySQL_db_pass')
+db_name = os.environ.get('MySQL_db_name')
 
 # function to connect to the MySQL database
 def connect():
@@ -37,7 +34,7 @@ def normalize_data(response_json):
     return data
 
 # Create the Flask application and its secret key
-app = Flask('H&M_data', template_folder='FrontEnd/templates', static_folder='FrontEnd/static')
+app = Flask('H&M_data', template_folder='templates', static_folder='FrontEnd/static')
 app.config["SECRET_KEY"] = "niccolo22"
 
 @app.route("/")
