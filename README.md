@@ -12,14 +12,23 @@ The project consists of developing a data application and deploy it in a public 
   - Chart.js
 - HTML
 - CSS
+- Dockerfile
 - Google Cloud
+  - Containers
   - MySQL
-  - MongoDB
-  - App Engine
+  - Cloud Run
+ 
+## Demo Images
+---
+**Welcome Page**
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/65e167d2-e929-4b22-883b-b356faf256e3)
+**Play with the dataset**
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/f705d5b3-80fd-4496-8063-e48f75b1bee1)
 
 ## Architecture
 --- 
 ![image](https://user-images.githubusercontent.com/114749413/227238490-27e49328-45d5-444f-bb0f-e6bee16c1c3e.png)
+
 
 ## Folders
 --- 
