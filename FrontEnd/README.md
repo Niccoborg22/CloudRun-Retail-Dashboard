@@ -17,7 +17,6 @@ The modules required to run the API are the following:
 - Flask: pip install Flask
 - SQLAlchemy: pip install SQLAlchemy
 - Pandas: pip install pandas
-- Werkzeug: pip install Werkzeug
 - Requests: pip install requests
 
 ## Functions
@@ -101,24 +100,33 @@ In the templates folder all the HTML pages are saved and stored
 
 ### register.html
 - *Description*: Extends the base page. In the main block a form is rendered giving the opportunity for the user to enter a username and a password
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/02db3548-48ca-421f-ad83-41d7301b304b)
+
 
 ### login.html
 - *Description*: Extends the base page. In the main block a form is rendered giving the opportunity for the user to enter a username and a password
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/2e7833c7-22f4-408b-adc0-216c9b5f75d6)
 
 ### index.html
 - *Description*: Extends the base page. In the main block a welcome title and message is displayed together with 4 images that redirect you to articles, customers, transactions and playdatasets pages
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/8687e148-817a-4f13-bef4-efadb9006366)
 
 ### articles.html
 - *Description*: Extends the base page. In the main block a welcome title and message are displayed together with, until all the JavaScript code is displayed a waiting loading screen. Once the JavaScript is loaded 3 KPIs of the articles dataset are displayed together with 2 graphs displaying interesting data about the articles in H&M portfolio
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/a5bed71c-8ac1-4abf-b64f-47747d60db77)
 
 ### customers.html
 - *Description*: Extends the base page. In the main block a welcome title and message are displayed together with, until all the JavaScript code is displayed a waiting loading screen. Once the JavaScript is loaded 3 KPIs of the customers dataset are displayed together with a graph displaying interesting data about the customers in H&M portfolio
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/738ee846-2000-48e3-a373-e68a8d8cc61b)
 
 ### transactions.html
 - *Description*: Extends the base page. In the main block a welcome title and message are displayed together with, until all the JavaScript code is displayed, a waiting loading screen. Once the JavaScript is loaded 3 KPIs of the transactions dataset are displayed together with a graph displaying interesting data about the transactions
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/43b8f0ed-1a1a-46ea-a5ae-f675f0bebf8a)
+
 
 ### playdatasets.html
 - *Description*: Extends the base page. In the main block a welcome title and message are displayed together with a 3 filters that allow the user to select the sales channel, section and age they want to see data for. Once the user clicks the Filter Data button the user will be able to see 2 graphs according to the filters they selected. The user will be able to render new graphs by using the button again
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/46cc44f4-fffd-460b-8083-3771c2120662)
 
 # CSS static
 ---
