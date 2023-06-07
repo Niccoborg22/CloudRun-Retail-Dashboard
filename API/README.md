@@ -4,18 +4,22 @@ This folder includes all the files used to build and deploy the REST API using F
 ## Overview
 ---
 This REST API has been designed to provide access to the following resources stored in the following databases: 
-- Customers: Google Cloud MySql database & MongoDb
-- Articles: Google Cloud MySql database & MongoDb
+- Customers: Google Cloud MySql database
+- Articles: Google Cloud MySql database
 - Transactions: Google Cloud MySql database
 - AllData: Google Cloud MySql database
 The main purpose of the API is to retrieve the data in JSON format. The API uses authentication
+
+## Demo Images
+---
+![image](https://github.com/Niccoborg22/CloudRun-Retail-Dashboard/assets/114749413/362be93f-acba-4c93-909f-be4f4d26d786)
+
 ## Required Modules
 ---
 The modules required to run the API are the following: 
 - Flask: pip install Flask
 - Flask-RESTx: pip install flask-restx
 - SQLAlchemy: pip install SQLAlchemy
-- PyMongo: pip install pymongo
 - Pandas: pip install pandas
 ## Functions
 --- 
@@ -32,36 +36,24 @@ The modules required to run the API are the following:
 ## Endpoints
 ---
 ### Namespace Customers
-#### GET api/v1/customers
+#### GET customers/customers
 - *Description*: Fethces all the customers dataset
-- *Authorization*: Requires a valid Bearer token
-
-#### GET api/v1/customers/customer_id
-- *Description*: Fethces the customer in the dataset with id = customer_id
-- *Authorization*: Requires a valid Bearer token
+- *Authorization*: /
 
 ### Namespace Articles
-#### GET api/v1/articles
+#### GET articles/articles
 - *Description*: Fethces all the articles dataset
-- *Authorization*: Requires a valid Bearer token
-
-#### GET api/v1/articles/article_id
-- *Description*: Fethces the customer in the dataset with id = article_id
-- *Authorization*: Requires a valid Bearer token
+- *Authorization*: /
 
 ### Namespace Transactions
-#### GET api/v1/transactions
+#### GET transactions/transactions
 - *Description*: Fethces all the transaction dataset
-- *Authorization*: Requires a valid Bearer token
+- *Authorization*: /
 
 ### Namespace Alldata
-#### GET api/v1/alldata
+#### GET alldata/alldata
 - *Description*: Fethces all the alldata dataset
-- *Authorization*: Requires a valid Bearer token
-
-#### GET api/v1/alldata/sales_channel/min_age/max_age/section_name
-- *Description*: Fethces the entries with sales channel = sales_channel, age between min_age and max_age with section name=section_name from alldata dataset
-- *Authorization*: Requires a valid Bearer token
+- *Authorization*: /
 
 ## Error Handling
 ---
@@ -69,6 +61,7 @@ In case of unathorized requests or errors, the API will return a JSON object con
 
 ## Deployment
 ---
-The API has been deployed in the App Engine in Google Cloud. In order to do so the following additional files have been created: 
-- app.yaml: Yaml file necessary for the deployment
+The API has been deployed in the Cloud Run in Google Cloud. In order to do so the following additional files have been created: 
+- Dockerfile: Dockerfile necessary to create a container
 - requirements.txt: txt file with all the requirements for the app engine to deploy the application
+
